@@ -68,3 +68,23 @@ begin
 end process;
 
 end Behavioralif;
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+architecture Behavioralcase of exercise2 is
+signal E: std_logic_vector(4 downto 0);
+begin
+    E <= A_1 & A_2 &B_1 & B_2 & not(D_1);
+process
+begin
+    case E is
+    when "11---" => E_out <= '1';
+    when "--10-" => E_out <= '1';
+    when "--01-" => E_out <= '1';
+    when "---11" => E_out <= '1';
+    when others  => E_out <= '0';
+    end case;
+end process;
+
+end Behavioralcase;
